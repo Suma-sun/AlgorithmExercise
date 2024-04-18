@@ -23,4 +23,18 @@ interface IAPi {
      */
     fun run()
 
+    /**
+     * 输出结果
+     * @param result 结果字符串
+     * @param start 开始时间戳
+     */
+    fun printResult(result:String, start:Long) {
+        val end = System.currentTimeMillis()
+        println("result $result 耗时：${end-start}\n")
+    }
+
+    fun startTime():Long {
+        return System.currentTimeMillis()
+    }
+
 }
