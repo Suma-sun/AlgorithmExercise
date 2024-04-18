@@ -1,7 +1,6 @@
 package com.suma.hash
 
 import com.suma.IAPi
-import java.util.*
 
 class Hash3(val data:IntArray):IAPi {
     override fun printDesc() {
@@ -25,7 +24,32 @@ class Hash3(val data:IntArray):IAPi {
     override fun run() {
         val start = System.currentTimeMillis()
         log("source=> ${data.contentToString()}")
-        Arrays.sort(data)
+        if(data.isEmpty()) {
+            println("输出：数组为空")
+            return
+        }
+
+        val set = mutableSetOf<Int>()
+        for (item in data) {
+            set.add(item)
+        }
+        var max = 0
+
+        for (item in set) {
+            //核心避免重复遍历，待数据到最小值才开始遍历
+            if (!set.contains(item - 1)){
+                var curr = item
+                var length = 1
+                while(set.contains(curr+1)) {
+                    curr++
+                    length++
+                }
+                //这行不能在循环里，比如[0]的数组
+                max = Math.max(max,length)
+            }
+
+        }
+        println("输出$max")
 
         val end = System.currentTimeMillis()
         println("result -- 耗时：${end-start}\n")
