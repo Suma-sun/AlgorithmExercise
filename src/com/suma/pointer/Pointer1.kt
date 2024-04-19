@@ -12,7 +12,7 @@ class Pointer1(val data:IntArray) :IAPi{
         sb.appendLine("一：")
         sb.appendLine("输入: nums = [0,1,0,3,12]")
         sb.appendLine("输出: [1,3,12,0,0]")
-        sb.appendLine("一：")
+        sb.appendLine("二：")
         sb.appendLine("输入: nums = [0]")
         sb.appendLine("输出: [0]")
         print(sb)
